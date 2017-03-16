@@ -77,18 +77,21 @@
 
 
 
-<meta name="description" content="EditText&amp;#x662F;TextView&amp;#x7684;&amp;#x5B50;&amp;#x7C7B;&amp;#xFF0C;&amp;#x5B83;&amp;#x662F;&amp;#x4E00;&amp;#x4E2A;&amp;#x975E;&amp;#x5E38;&amp;#x91CD;&amp;#x8981;&amp;#x7684;&amp;#x7EC4;&amp;#x4EF6;&amp;#xFF0C;&amp;#x53EF;&amp;#x4EE5;&amp;#x8BF4;&amp;#x5B83;&amp;#x662F;&amp;#x7528;">
+<meta name="description" content="EditText是TextView的子类，它是一个非常重要的组件，可以说它是用户和Android应用进行数据传输窗户，有了它就等于有了一扇和Android应用传输的门，通过它用户可以把数据传给Android应用，然后得到我们想要的数据。下面我们分几种情况来优化一下EditText。
+ScrollView嵌套EditText当ScrollView嵌套EditText，并键入较大篇幅的文字。EditT">
 <meta property="og:type" content="article">
 <meta property="og:title" content="EditText键入后的细节优化">
 <meta property="og:url" content="www.yaulam.com/2016/08/11/EditText键入后的细节优化/index.html">
 <meta property="og:site_name" content="YauLam's Space">
-<meta property="og:description" content="EditText&amp;#x662F;TextView&amp;#x7684;&amp;#x5B50;&amp;#x7C7B;&amp;#xFF0C;&amp;#x5B83;&amp;#x662F;&amp;#x4E00;&amp;#x4E2A;&amp;#x975E;&amp;#x5E38;&amp;#x91CD;&amp;#x8981;&amp;#x7684;&amp;#x7EC4;&amp;#x4EF6;&amp;#xFF0C;&amp;#x53EF;&amp;#x4EE5;&amp;#x8BF4;&amp;#x5B83;&amp;#x662F;&amp;#x7528;">
-<meta property="og:image" content="www.yaulam.com/11/EditText键入后的细节优化/../../../../images/hexo_15.png">
+<meta property="og:description" content="EditText是TextView的子类，它是一个非常重要的组件，可以说它是用户和Android应用进行数据传输窗户，有了它就等于有了一扇和Android应用传输的门，通过它用户可以把数据传给Android应用，然后得到我们想要的数据。下面我们分几种情况来优化一下EditText。
+ScrollView嵌套EditText当ScrollView嵌套EditText，并键入较大篇幅的文字。EditT">
+<meta property="og:image" content="www.yaulam.com/11/EditText键入后的细节优化/../../../images/hexo_15.png">
 <meta property="og:updated_time" content="2016-08-11T06:48:45.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="EditText键入后的细节优化">
-<meta name="twitter:description" content="EditText&amp;#x662F;TextView&amp;#x7684;&amp;#x5B50;&amp;#x7C7B;&amp;#xFF0C;&amp;#x5B83;&amp;#x662F;&amp;#x4E00;&amp;#x4E2A;&amp;#x975E;&amp;#x5E38;&amp;#x91CD;&amp;#x8981;&amp;#x7684;&amp;#x7EC4;&amp;#x4EF6;&amp;#xFF0C;&amp;#x53EF;&amp;#x4EE5;&amp;#x8BF4;&amp;#x5B83;&amp;#x662F;&amp;#x7528;">
-<meta name="twitter:image" content="www.yaulam.com/11/EditText键入后的细节优化/../../../../images/hexo_15.png">
+<meta name="twitter:description" content="EditText是TextView的子类，它是一个非常重要的组件，可以说它是用户和Android应用进行数据传输窗户，有了它就等于有了一扇和Android应用传输的门，通过它用户可以把数据传给Android应用，然后得到我们想要的数据。下面我们分几种情况来优化一下EditText。
+ScrollView嵌套EditText当ScrollView嵌套EditText，并键入较大篇幅的文字。EditT">
+<meta name="twitter:image" content="www.yaulam.com/11/EditText键入后的细节优化/../../../images/hexo_15.png">
 
 
 
@@ -346,63 +349,63 @@
       
 
       
-        <p>EditText&#x662F;TextView&#x7684;&#x5B50;&#x7C7B;&#xFF0C;&#x5B83;&#x662F;&#x4E00;&#x4E2A;&#x975E;&#x5E38;&#x91CD;&#x8981;&#x7684;&#x7EC4;&#x4EF6;&#xFF0C;&#x53EF;&#x4EE5;&#x8BF4;&#x5B83;&#x662F;&#x7528;&#x6237;&#x548C;Android&#x5E94;&#x7528;&#x8FDB;&#x884C;&#x6570;&#x636E;&#x4F20;&#x8F93;&#x7A97;&#x6237;&#xFF0C;&#x6709;&#x4E86;&#x5B83;&#x5C31;&#x7B49;&#x4E8E;&#x6709;&#x4E86;&#x4E00;&#x6247;&#x548C;Android&#x5E94;&#x7528;&#x4F20;&#x8F93;&#x7684;&#x95E8;&#xFF0C;&#x901A;&#x8FC7;&#x5B83;&#x7528;&#x6237;&#x53EF;&#x4EE5;&#x628A;&#x6570;&#x636E;&#x4F20;&#x7ED9;Android&#x5E94;&#x7528;&#xFF0C;&#x7136;&#x540E;&#x5F97;&#x5230;&#x6211;&#x4EEC;&#x60F3;&#x8981;&#x7684;&#x6570;&#x636E;&#x3002;<br>&#x4E0B;&#x9762;&#x6211;&#x4EEC;&#x5206;&#x51E0;&#x79CD;&#x60C5;&#x51B5;&#x6765;&#x4F18;&#x5316;&#x4E00;&#x4E0B;EditText&#x3002;</p>
-<h3 id="ScrollView&#x5D4C;&#x5957;EditText"><a href="#ScrollView&#x5D4C;&#x5957;EditText" class="headerlink" title="ScrollView&#x5D4C;&#x5957;EditText"></a>ScrollView&#x5D4C;&#x5957;EditText</h3><p>&#x5F53;ScrollView&#x5D4C;&#x5957;EditText&#xFF0C;&#x5E76;&#x952E;&#x5165;&#x8F83;&#x5927;&#x7BC7;&#x5E45;&#x7684;&#x6587;&#x5B57;&#x3002;EditText&#x5C55;&#x793A;&#x4E0D;&#x4E0B;&#xFF0C;&#x5F53;&#x6211;&#x4EEC;&#x4E0A;&#x4E0B;&#x6ED1;&#x52A8;EditText&#x60F3;&#x770B;&#x6587;&#x5B57;&#x7684;&#x5168;&#x90E8;&#x5185;&#x5BB9;&#x65F6;&#xFF0C;&#x53D1;&#x73B0;EditText&#x7684;&#x5185;&#x5BB9;&#x5E76;&#x6CA1;&#x6709;&#x4E0A;&#x4E0B;&#x6ED1;&#x52A8;&#xFF0C;&#x800C;&#x662F;SrollView&#x5728;&#x4E0A;&#x4E0B;&#x6ED1;&#x52A8;&#x3002;&#x8FD9;&#x4E2A;&#x65F6;&#x5019;&#x6211;&#x4EEC;&#x8981;&#x5BF9;EditText&#x505A;&#x7279;&#x522B;&#x7684;&#x5904;&#x7406;&#xFF0C;&#x56E0;&#x4E3A;&#x7126;&#x70B9;&#x5728;ScrollView&#x4E0A;&#x3002;&#x5904;&#x7406;&#x4EE3;&#x7801;&#x5982;&#x4E0B;&#xFF1A;<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">editText.setOnTouchListener(new View.<span class="function"><span class="title">OnTouchListener</span></span>() {</span><br><span class="line">	@Override</span><br><span class="line">	public boolean onTouch(View v, MotionEvent event) {</span><br><span class="line"></span><br><span class="line">		// &#x89E3;&#x51B3;scrollView&#x4E2D;&#x5D4C;&#x5957;EditText&#x5BFC;&#x81F4;&#x4E0D;&#x80FD;&#x4E0A;&#x4E0B;&#x6ED1;&#x52A8;&#x7684;&#x95EE;&#x9898;</span><br><span class="line">		v.getParent().requestDisallowInterceptTouchEvent(<span class="literal">true</span>);</span><br><span class="line">		switch (event.getAction() &amp; MotionEvent.ACTION_MASK) {</span><br><span class="line">			<span class="keyword">case</span> MotionEvent.ACTION_UP:</span><br><span class="line">				v.getParent().requestDisallowInterceptTouchEvent(<span class="literal">false</span>);</span><br><span class="line">			<span class="built_in">break</span>;</span><br><span class="line">		}</span><br><span class="line">		<span class="built_in">return</span> <span class="literal">false</span>;</span><br><span class="line">	}</span><br><span class="line">});</span><br></pre></td></tr></table></figure></p>
-<h3 id="ListView&#x4E0B;&#x63A5;EditText"><a href="#ListView&#x4E0B;&#x63A5;EditText" class="headerlink" title="ListView&#x4E0B;&#x63A5;EditText"></a>ListView&#x4E0B;&#x63A5;EditText</h3><p><img src="/11/EditText&#x952E;&#x5165;&#x540E;&#x7684;&#x7EC6;&#x8282;&#x4F18;&#x5316;/../../../../images/hexo_15.png" alt=""><br>&#x5F53;ListView&#x4E0B;&#x90E8;&#x9700;&#x8981;&#x6709;&#x4E00;&#x4E2A;EditText&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x6211;&#x4EEC;&#x952E;&#x5165;&#x6587;&#x5B57;&#xFF0C;&#x53D1;&#x73B0;&#x952E;&#x76D8;&#x5219;&#x6321;&#x4F4F;&#x4E86;&#x6211;&#x4EEC;&#x6B63;&#x5728;&#x8F93;&#x5165;&#x7684;&#x6587;&#x5B57;&#xFF0C;EditText&#x5E76;&#x672A;&#x50CF;&#x5E73;&#x65F6;&#x4E00;&#x6837;&#x63A8;&#x52A8;&#x6574;&#x4E2A;&#x5E03;&#x5C40;&#x6765;&#x5C55;&#x793A;&#x4ED6;&#x4EEC;&#x3002;&#x8FD9;&#x4E2A;&#x65F6;&#x5019;&#x9700;&#x8981;&#x6211;&#x4EEC;&#x5728;AndroidManifest.xml&#x4E2D;&#x914D;&#x4E0A;&#x5982;&#x4E0B;&#x5C5E;&#x6027;&#xFF1A;<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;activity</span><br><span class="line">	android:name=&#x201C;&#x5F53;&#x524D;activity&#x201D;</span><br><span class="line">	android:windowSoftInputMode=<span class="string">&quot;stateAlwaysHidden|adjustPan&quot;</span> /&gt;</span><br></pre></td></tr></table></figure></p>
-<p>android:windowSoftInputMode&#xFF0C;activity&#x4E3B;&#x7A97;&#x53E3;&#x4E0E;&#x8F6F;&#x952E;&#x76D8;&#x7684;&#x4EA4;&#x4E92;&#x6A21;&#x5F0F;&#xFF0C;&#x53EF;&#x4EE5;&#x7528;&#x6765;&#x907F;&#x514D;&#x8F93;&#x5165;&#x6CD5;&#x9762;&#x677F;&#x906E;&#x6321;&#x95EE;&#x9898;&#xFF0C;Android1.5&#x540E;&#x7684;&#x4E00;&#x4E2A;&#x65B0;&#x7279;&#x6027;&#x3002;&#x8FD9;&#x4E2A;&#x5C5E;&#x6027;&#x80FD;&#x5F71;&#x54CD;&#x4E24;&#x4EF6;&#x4E8B;&#x60C5;&#xFF1A;</p>
+        <p>EditText是TextView的子类，它是一个非常重要的组件，可以说它是用户和Android应用进行数据传输窗户，有了它就等于有了一扇和Android应用传输的门，通过它用户可以把数据传给Android应用，然后得到我们想要的数据。<br>下面我们分几种情况来优化一下EditText。</p>
+<h3 id="ScrollView嵌套EditText"><a href="#ScrollView嵌套EditText" class="headerlink" title="ScrollView嵌套EditText"></a>ScrollView嵌套EditText</h3><p>当ScrollView嵌套EditText，并键入较大篇幅的文字。EditText展示不下，当我们上下滑动EditText想看文字的全部内容时，发现EditText的内容并没有上下滑动，而是SrollView在上下滑动。这个时候我们要对EditText做特别的处理，因为焦点在ScrollView上。处理代码如下：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">editText.setOnTouchListener(new View.<span class="function"><span class="title">OnTouchListener</span></span>() &#123;</div><div class="line">	@Override</div><div class="line">	public boolean onTouch(View v, MotionEvent event) &#123;</div><div class="line"></div><div class="line">		// 解决scrollView中嵌套EditText导致不能上下滑动的问题</div><div class="line">		v.getParent().requestDisallowInterceptTouchEvent(<span class="literal">true</span>);</div><div class="line">		switch (event.getAction() &amp; MotionEvent.ACTION_MASK) &#123;</div><div class="line">			<span class="keyword">case</span> MotionEvent.ACTION_UP:</div><div class="line">				v.getParent().requestDisallowInterceptTouchEvent(<span class="literal">false</span>);</div><div class="line">			<span class="built_in">break</span>;</div><div class="line">		&#125;</div><div class="line">		<span class="built_in">return</span> <span class="literal">false</span>;</div><div class="line">	&#125;</div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
+<h3 id="ListView下接EditText"><a href="#ListView下接EditText" class="headerlink" title="ListView下接EditText"></a>ListView下接EditText</h3><p><img src="/11/EditText键入后的细节优化/../../../images/hexo_15.png" alt=""><br>当ListView下部需要有一个EditText的时候，我们键入文字，发现键盘则挡住了我们正在输入的文字，EditText并未像平时一样推动整个布局来展示他们。这个时候需要我们在AndroidManifest.xml中配上如下属性：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;activity</div><div class="line">	android:name=“当前activity”</div><div class="line">	android:windowSoftInputMode=<span class="string">"stateAlwaysHidden|adjustPan"</span> /&gt;</div></pre></td></tr></table></figure></p>
+<p>android:windowSoftInputMode，activity主窗口与软键盘的交互模式，可以用来避免输入法面板遮挡问题，Android1.5后的一个新特性。这个属性能影响两件事情：</p>
 <blockquote>
-<p>1.&#x5F53;&#x6709;&#x7126;&#x70B9;&#x4EA7;&#x751F;&#x65F6;&#xFF0C;&#x8F6F;&#x952E;&#x76D8;&#x662F;&#x9690;&#x85CF;&#x8FD8;&#x662F;&#x663E;&#x793A;<br>2.&#x662F;&#x5426;&#x51CF;&#x5C11;&#x6D3B;&#x52A8;&#x4E3B;&#x7A97;&#x53E3;&#x5927;&#x5C0F;&#x4EE5;&#x4FBF;&#x817E;&#x51FA;&#x7A7A;&#x95F4;&#x653E;&#x8F6F;&#x952E;&#x76D8;</p>
+<p>1.当有焦点产生时，软键盘是隐藏还是显示<br>2.是否减少活动主窗口大小以便腾出空间放软键盘</p>
 </blockquote>
-<p>&#x5B83;&#x7684;&#x8BBE;&#x7F6E;&#x5FC5;&#x987B;&#x662F;&#x4E0B;&#x9762;&#x5217;&#x8868;&#x4E2D;&#x7684;&#x4E00;&#x4E2A;&#x503C;&#xFF0C;&#x6216;&#x4E00;&#x4E2A;&#x201D;state&#x2026;&#x201D;&#x503C;&#x52A0;&#x4E00;&#x4E2A;&#x201D;adjust&#x2026;&#x201D;&#x503C;&#x7684;&#x7EC4;&#x5408;&#x3002;&#x591A;&#x4E2A;&#x503C;&#x4E4B;&#x95F4;&#x7528;|&#x5206;&#x5F00;&#x3002;&#x5728;&#x8FD9;&#x8BBE;&#x7F6E;&#x7684;&#x503C;(&#x9664;&#x201D;stateUnspecified&#x201D;&#x548C;&#x201D;adjustUnspecified&#x201D;&#x4EE5;&#x5916;)&#x5C06;&#x8986;&#x76D6;&#x5728;&#x4E3B;&#x9898;&#x4E2D;&#x8BBE;&#x7F6E;&#x7684;&#x503C;&#x3002;</p>
+<p>它的设置必须是下面列表中的一个值，或一个”state…”值加一个”adjust…”值的组合。多个值之间用|分开。在这设置的值(除”stateUnspecified”和”adjustUnspecified”以外)将覆盖在主题中设置的值。</p>
 <table>
 <thead>
 <tr>
-<th>&#x503C;</th>
-<th>&#x542B;&#x4E49;</th>
+<th>值</th>
+<th>含义</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td>stateUnspecified</td>
-<td>&#x8F6F;&#x952E;&#x76D8;&#x7684;&#x72B6;&#x6001; (&#x662F;&#x5426;&#x5B83;&#x662F;&#x9690;&#x85CF;&#x6216;&#x53EF;&#x89C1; )&#x6CA1;&#x6709;&#x88AB;&#x6307;&#x5B9A;&#x3002;&#x7CFB;&#x7EDF;&#x5C06;&#x9009;&#x62E9;&#x4E00;&#x4E2A;&#x5408;&#x9002;&#x7684;&#x72B6;&#x6001;&#x6216;&#x4F9D;&#x8D56;&#x4E8E;&#x4E3B;&#x9898;&#x7684;&#x8BBE;&#x7F6E;&#x3002;&#x8FD9;&#x4E2A;&#x662F;&#x4E3A;&#x4E86;&#x8F6F;&#x4EF6;&#x76D8;&#x884C;&#x4E3A;&#x9ED8;&#x8BA4;&#x7684;&#x8BBE;&#x7F6E;&#x3002;</td>
+<td>软键盘的状态 (是否它是隐藏或可见 )没有被指定。系统将选择一个合适的状态或依赖于主题的设置。这个是为了软件盘行为默认的设置。</td>
 </tr>
 <tr>
 <td>stateUnchanged</td>
-<td>&#x8F6F;&#x952E;&#x76D8;&#x88AB;&#x4FDD;&#x6301;&#x65E0;&#x8BBA;&#x5B83;&#x4E0A;&#x6B21;&#x662F;&#x4EC0;&#x4E48;&#x72B6;&#x6001;&#xFF0C;&#x662F;&#x5426;&#x53EF;&#x89C1;&#x6216;&#x9690;&#x85CF;&#xFF0C;&#x5F53;&#x4E3B;&#x7A97;&#x53E3;&#x51FA;&#x73B0;&#x5728;&#x524D;&#x9762;&#x65F6;&#x3002;</td>
+<td>软键盘被保持无论它上次是什么状态，是否可见或隐藏，当主窗口出现在前面时。</td>
 </tr>
 <tr>
 <td>stateHidden</td>
-<td>&#x5F53;&#x7528;&#x6237;&#x9009;&#x62E9;&#x8BE5; Activity&#x65F6;&#xFF0C;&#x8F6F;&#x952E;&#x76D8;&#x88AB;&#x9690;&#x85CF;&#x2014;&#x2014;&#x4E5F;&#x5C31;&#x662F;&#xFF0C;&#x5F53;&#x7528;&#x6237;&#x786E;&#x5B9A;&#x5BFC;&#x822A;&#x5230;&#x8BE5; Activity&#x65F6;&#xFF0C;&#x800C;&#x4E0D;&#x662F;&#x8FD4;&#x56DE;&#x5230;&#x5B83;&#x7531;&#x4E8E;&#x79BB;&#x5F00;&#x53E6;&#x4E00;&#x4E2A; Activity&#x3002;</td>
+<td>当用户选择该 Activity时，软键盘被隐藏——也就是，当用户确定导航到该 Activity时，而不是返回到它由于离开另一个 Activity。</td>
 </tr>
 <tr>
 <td>stateAlwaysHidden</td>
-<td>&#x8F6F;&#x952E;&#x76D8;&#x603B;&#x662F;&#x88AB;&#x9690;&#x85CF;&#x7684;&#xFF0C;&#x5F53;&#x8BE5; Activity&#x4E3B;&#x7A97;&#x53E3;&#x83B7;&#x53D6;&#x7126;&#x70B9;&#x65F6;&#x3002;</td>
+<td>软键盘总是被隐藏的，当该 Activity主窗口获取焦点时。</td>
 </tr>
 <tr>
 <td>stateVisible</td>
-<td>&#x8F6F;&#x952E;&#x76D8;&#x662F;&#x53EF;&#x89C1;&#x7684;&#xFF0C;&#x5F53;&#x90A3;&#x4E2A;&#x662F;&#x6B63;&#x5E38;&#x5408;&#x9002;&#x7684;&#x65F6; (&#x5F53;&#x7528;&#x6237;&#x5BFC;&#x822A;&#x5230; Activity&#x4E3B;&#x7A97;&#x53E3;&#x65F6; )&#x3002;</td>
+<td>软键盘是可见的，当那个是正常合适的时 (当用户导航到 Activity主窗口时 )。</td>
 </tr>
 <tr>
 <td>stateAlwaysVisible</td>
-<td>&#x5F53;&#x7528;&#x6237;&#x9009;&#x62E9;&#x8FD9;&#x4E2A; Activity&#x65F6;&#xFF0C;&#x8F6F;&#x952E;&#x76D8;&#x662F;&#x53EF;&#x89C1;&#x7684;&#x2014;&#x2014;&#x4E5F;&#x5C31;&#x662F;&#xFF0C;&#x4E5F;&#x5C31;&#x662F;&#xFF0C;&#x5F53;&#x7528;&#x6237;&#x786E;&#x5B9A;&#x5BFC;&#x822A;&#x5230;&#x8BE5; Activity&#x65F6;&#xFF0C;&#x800C;&#x4E0D;&#x662F;&#x8FD4;&#x56DE;&#x5230;&#x5B83;&#x7531;&#x4E8E;&#x79BB;&#x5F00;&#x53E6;&#x4E00;&#x4E2A;Activity&#x3002;</td>
+<td>当用户选择这个 Activity时，软键盘是可见的——也就是，也就是，当用户确定导航到该 Activity时，而不是返回到它由于离开另一个Activity。</td>
 </tr>
 <tr>
 <td>adjustUnspecified</td>
-<td>&#x5B83;&#x4E0D;&#x88AB;&#x6307;&#x5B9A;&#x662F;&#x5426;&#x8BE5; Activity&#x4E3B; &#x7A97;&#x53E3;&#x8C03;&#x6574;&#x5927;&#x5C0F;&#x4EE5;&#x4FBF;&#x7559;&#x51FA;&#x8F6F;&#x952E;&#x76D8;&#x7684;&#x7A7A;&#x95F4;&#xFF0C;&#x6216;&#x662F;&#x5426;&#x7A97;&#x53E3;&#x4E0A;&#x7684;&#x5185;&#x5BB9;&#x5F97;&#x5230;&#x5C4F;&#x5E55;&#x4E0A;&#x5F53;&#x524D;&#x7684;&#x7126;&#x70B9;&#x662F;&#x53EF;&#x89C1;&#x7684;&#x3002;&#x7CFB;&#x7EDF;&#x5C06;&#x81EA;&#x52A8;&#x9009;&#x62E9;&#x8FD9;&#x4E9B;&#x6A21;&#x5F0F;&#x4E2D;&#x4E00;&#x79CD;&#x4E3B;&#x8981;&#x4F9D;&#x8D56;&#x4E8E;&#x662F;&#x5426;&#x7A97;&#x53E3;&#x7684;&#x5185;&#x5BB9;&#x6709;&#x4EFB;&#x4F55;&#x5E03;&#x5C40; &#x89C6;&#x56FE;&#x80FD;&#x591F;&#x6EDA;&#x52A8;&#x4ED6;&#x4EEC;&#x7684;&#x5185;&#x5BB9;&#x3002;&#x5982;&#x679C;&#x6709;&#x8FD9;&#x6837;&#x7684;&#x4E00;&#x4E2A;&#x89C6;&#x56FE;&#xFF0C;&#x8FD9;&#x4E2A;&#x7A97;&#x53E3;&#x5C06;&#x8C03;&#x6574;&#x5927;&#x5C0F;&#xFF0C;&#x8FD9;&#x6837;&#x7684;&#x5047;&#x8BBE;&#x53EF;&#x4EE5;&#x4F7F;&#x6EDA;&#x52A8;&#x7A97;&#x53E3;&#x7684;&#x5185;&#x5BB9;&#x5728;&#x4E00;&#x4E2A;&#x8F83;&#x5C0F;&#x7684;&#x533A;&#x57DF;&#x4E2D;&#x53EF;&#x89C1;&#x7684;&#x3002;&#x8FD9;&#x4E2A;&#x662F;&#x4E3B;&#x7A97;&#x53E3;&#x9ED8;&#x8BA4;&#x7684;&#x884C;&#x4E3A; &#x8BBE;&#x7F6E;</td>
+<td>它不被指定是否该 Activity主 窗口调整大小以便留出软键盘的空间，或是否窗口上的内容得到屏幕上当前的焦点是可见的。系统将自动选择这些模式中一种主要依赖于是否窗口的内容有任何布局 视图能够滚动他们的内容。如果有这样的一个视图，这个窗口将调整大小，这样的假设可以使滚动窗口的内容在一个较小的区域中可见的。这个是主窗口默认的行为 设置</td>
 </tr>
 <tr>
 <td>adjustResize</td>
-<td>&#x8BE5; Activity&#x4E3B;&#x7A97;&#x53E3;&#x603B;&#x662F;&#x88AB;&#x8C03;&#x6574;&#x5C4F;&#x5E55;&#x7684;&#x5927;&#x5C0F;&#x4EE5;&#x4FBF;&#x7559;&#x51FA;&#x8F6F;&#x952E;&#x76D8;&#x7684;&#x7A7A;&#x95F4;</td>
+<td>该 Activity主窗口总是被调整屏幕的大小以便留出软键盘的空间</td>
 </tr>
 <tr>
 <td>adjustPan</td>
-<td>&#x8BE5; Activity&#x4E3B;&#x7A97;&#x53E3;&#x5E76;&#x4E0D;&#x8C03;&#x6574;&#x5C4F;&#x5E55;&#x7684;&#x5927;&#x5C0F;&#x4EE5;&#x4FBF;&#x7559;&#x51FA;&#x8F6F;&#x952E;&#x76D8;&#x7684;&#x7A7A;&#x95F4;&#x3002;&#x76F8;&#x53CD;&#xFF0C;&#x5F53;&#x524D;&#x7A97;&#x53E3;&#x7684;&#x5185;&#x5BB9;&#x5C06;&#x81EA;&#x52A8;&#x79FB;&#x52A8;&#x4EE5;&#x4FBF;&#x5F53;&#x524D;&#x7126;&#x70B9;&#x4ECE;&#x4E0D;&#x88AB;&#x952E;&#x76D8;&#x8986;&#x76D6;&#x548C;&#x7528;&#x6237;&#x80FD;&#x603B;&#x662F;&#x770B;&#x5230;&#x8F93;&#x5165;&#x5185;&#x5BB9;&#x7684;&#x90E8;&#x5206;&#x3002;&#x8FD9;&#x4E2A;&#x901A;&#x5E38;&#x662F;&#x4E0D;&#x671F;&#x671B;&#x6BD4;&#x8C03;&#x6574;&#x5927;&#x5C0F;&#xFF0C;&#x56E0;&#x4E3A;&#x7528;&#x6237;&#x53EF;&#x80FD;&#x5173;&#x95ED;&#x8F6F;&#x952E;&#x76D8;&#x4EE5;&#x4FBF;&#x83B7;&#x5F97;&#x4E0E;&#x88AB;&#x8986;&#x76D6;&#x5185;&#x5BB9;&#x7684;&#x4EA4;&#x4E92;&#x64CD;&#x4F5C;&#x3002;</td>
+<td>该 Activity主窗口并不调整屏幕的大小以便留出软键盘的空间。相反，当前窗口的内容将自动移动以便当前焦点从不被键盘覆盖和用户能总是看到输入内容的部分。这个通常是不期望比调整大小，因为用户可能关闭软键盘以便获得与被覆盖内容的交互操作。</td>
 </tr>
 </tbody>
 </table>
-<h3 id="EditText&#x8F93;&#x5165;&#x6587;&#x5B57;&#x4E0D;&#x53EF;&#x6362;&#x884C;"><a href="#EditText&#x8F93;&#x5165;&#x6587;&#x5B57;&#x4E0D;&#x53EF;&#x6362;&#x884C;" class="headerlink" title="EditText&#x8F93;&#x5165;&#x6587;&#x5B57;&#x4E0D;&#x53EF;&#x6362;&#x884C;"></a>EditText&#x8F93;&#x5165;&#x6587;&#x5B57;&#x4E0D;&#x53EF;&#x6362;&#x884C;</h3><p>&#x5982;&#x679C;&#x6709;&#x4E9B;&#x9700;&#x6C42;&#x8981;&#x6C42;EditText&#x8F93;&#x5165;&#x7684;&#x65F6;&#x5019;&#x4E0D;&#x53EF;&#x4EE5;&#x6362;&#x884C;&#xFF0C;&#x90A3;&#x4E48;&#x53EF;&#x4EE5;&#x505A;&#x5982;&#x4E0B;&#x64CD;&#x4F5C;&#xFF1A;<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">etComment.setOnEditorActionListener(new TextView.<span class="function"><span class="title">OnEditorActionListener</span></span>() {</span><br><span class="line">	@Override</span><br><span class="line">	public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {</span><br><span class="line">		<span class="built_in">return</span> (event.getKeyCode() == KeyEvent.KEYCODE_ENTER);</span><br><span class="line">	}</span><br><span class="line">});</span><br></pre></td></tr></table></figure></p>
-<p>&#x8FD9;&#x6837;&#xFF0C;&#x5728;EditText&#x4E2D;&#x8F93;&#x5165;&#x6362;&#x884C;&#x5C31;&#x662F;&#x65E0;&#x6548;&#x7684;&#x4E86;&#x3002;</p>
-<p>&#x5982;&#x9700;&#x8F6C;&#x8F7D;&#xFF0C;&#x8BF7;&#x6CE8;&#x660E;&#x51FA;&#x5904;&#xFF1A;<a href="http://yaulam.com/" target="_blank" rel="external">YauLam&#x2019;s Blog</a>&#xFF0C;thank u~</p>
+<h3 id="EditText输入文字不可换行"><a href="#EditText输入文字不可换行" class="headerlink" title="EditText输入文字不可换行"></a>EditText输入文字不可换行</h3><p>如果有些需求要求EditText输入的时候不可以换行，那么可以做如下操作：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">etComment.setOnEditorActionListener(new TextView.<span class="function"><span class="title">OnEditorActionListener</span></span>() &#123;</div><div class="line">	@Override</div><div class="line">	public boolean onEditorAction(TextView v, int actionId, KeyEvent event) &#123;</div><div class="line">		<span class="built_in">return</span> (event.getKeyCode() == KeyEvent.KEYCODE_ENTER);</div><div class="line">	&#125;</div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
+<p>这样，在EditText中输入换行就是无效的了。</p>
+<p>如需转载，请注明出处：<a href="http://yaulam.com/" target="_blank" rel="external">YauLam’s Blog</a>，thank u~</p>
 
       
     </div>
@@ -603,7 +606,7 @@
         <div class="copyright" >
   
   &copy; 
-  <span itemprop="copyrightYear">2016</span>
+  <span itemprop="copyrightYear">2017</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
