@@ -61,7 +61,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="ListView,CheckBox," />
+  <meta name="keywords" content="android,java," />
 
 
 
@@ -77,27 +77,22 @@
 
 
 
-<meta name="description" content="ListView中使用CheckBoxListView出于内存优化的考虑，android为我们提供了convertView。可是复用item,会使CheckBox的选中状态错乱。下面为大家讲解一下，我是怎样处理的。
-这次我接到的需求是如图所示：并且，下次进入要把选中的状态携带进来。我最先想到的处理办法是ListView与CheckBox结合，但是这样做的话便会出现，如下两个问题：
-
-1.当我Lis">
+<meta name="description" content="什么是单例一个类在整个系统中只有一个实例，而且这个实例是在类的内部通过一个private的构造方法构造的，外部不能调用其构造方法，只能获取它的实例。
+为什么使用单例而不是静态方法静态方法是基于对象，单例是面向对象的，面相对象的代码提供一个更好的编程思想。
+如果一个方法和他所在类的实例对象无关，那么它就应该是静态的，反之他就应该是非静态的。如果我们确实应该使用非静态的方法，但是在创建类时又确实只需要">
 <meta property="og:type" content="article">
-<meta property="og:title" content="解决ListView中CheckBox复用而选中状态消失的问题">
-<meta property="og:url" content="www.yaulam.com/2016/08/05/解决ListView中CheckBox复用而选中状态消失的问题/index.html">
+<meta property="og:title" content="单例模式详述">
+<meta property="og:url" content="www.yaulam.com/2017/08/15/单例模式详述/index.html">
 <meta property="og:site_name" content="YauLam's Space">
-<meta property="og:description" content="ListView中使用CheckBoxListView出于内存优化的考虑，android为我们提供了convertView。可是复用item,会使CheckBox的选中状态错乱。下面为大家讲解一下，我是怎样处理的。
-这次我接到的需求是如图所示：并且，下次进入要把选中的状态携带进来。我最先想到的处理办法是ListView与CheckBox结合，但是这样做的话便会出现，如下两个问题：
-
-1.当我Lis">
-<meta property="og:image" content="www.yaulam.com/05/解决ListView中CheckBox复用而选中状态消失的问题/../../../images/hexo_13.png">
-<meta property="og:updated_time" content="2016-08-10T12:11:01.000Z">
+<meta property="og:description" content="什么是单例一个类在整个系统中只有一个实例，而且这个实例是在类的内部通过一个private的构造方法构造的，外部不能调用其构造方法，只能获取它的实例。
+为什么使用单例而不是静态方法静态方法是基于对象，单例是面向对象的，面相对象的代码提供一个更好的编程思想。
+如果一个方法和他所在类的实例对象无关，那么它就应该是静态的，反之他就应该是非静态的。如果我们确实应该使用非静态的方法，但是在创建类时又确实只需要">
+<meta property="og:updated_time" content="2017-08-15T14:23:06.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="解决ListView中CheckBox复用而选中状态消失的问题">
-<meta name="twitter:description" content="ListView中使用CheckBoxListView出于内存优化的考虑，android为我们提供了convertView。可是复用item,会使CheckBox的选中状态错乱。下面为大家讲解一下，我是怎样处理的。
-这次我接到的需求是如图所示：并且，下次进入要把选中的状态携带进来。我最先想到的处理办法是ListView与CheckBox结合，但是这样做的话便会出现，如下两个问题：
-
-1.当我Lis">
-<meta name="twitter:image" content="www.yaulam.com/05/解决ListView中CheckBox复用而选中状态消失的问题/../../../images/hexo_13.png">
+<meta name="twitter:title" content="单例模式详述">
+<meta name="twitter:description" content="什么是单例一个类在整个系统中只有一个实例，而且这个实例是在类的内部通过一个private的构造方法构造的，外部不能调用其构造方法，只能获取它的实例。
+为什么使用单例而不是静态方法静态方法是基于对象，单例是面向对象的，面相对象的代码提供一个更好的编程思想。
+如果一个方法和他所在类的实例对象无关，那么它就应该是静态的，反之他就应该是非静态的。如果我们确实应该使用非静态的方法，但是在创建类时又确实只需要">
 
 
 
@@ -118,9 +113,9 @@
 
 
 
-  <link rel="canonical" href="www.yaulam.com/2016/08/05/解决ListView中CheckBox复用而选中状态消失的问题/"/>
+  <link rel="canonical" href="www.yaulam.com/2017/08/15/单例模式详述/"/>
 
-  <title> 解决ListView中CheckBox复用而选中状态消失的问题 | YauLam's Space </title>
+  <title> 单例模式详述 | YauLam's Space </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -280,7 +275,7 @@
             
             
               
-                解决ListView中CheckBox复用而选中状态消失的问题
+                单例模式详述
               
             
           </h1>
@@ -292,8 +287,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-08-05T11:16:23+08:00" content="2016-08-05">
-              2016-08-05
+            <time itemprop="dateCreated" datetime="2017-08-15T21:30:43+08:00" content="2017-08-15">
+              2017-08-15
             </time>
           </span>
 
@@ -306,8 +301,8 @@
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/android/" itemprop="url" rel="index">
-                    <span itemprop="name">android</span>
+                  <a href="/categories/设计模式/" itemprop="url" rel="index">
+                    <span itemprop="name">设计模式</span>
                   </a>
                 </span>
 
@@ -322,8 +317,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/08/05/解决ListView中CheckBox复用而选中状态消失的问题/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/08/05/解决ListView中CheckBox复用而选中状态消失的问题/" itemprop="commentsCount"></span>
+                <a href="/2017/08/15/单例模式详述/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/08/15/单例模式详述/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -333,7 +328,7 @@
 
           
           
-             <span id="/2016/08/05/解决ListView中CheckBox复用而选中状态消失的问题/" class="leancloud_visitors" data-flag-title="解决ListView中CheckBox复用而选中状态消失的问题">
+             <span id="/2017/08/15/单例模式详述/" class="leancloud_visitors" data-flag-title="单例模式详述">
                &nbsp; | &nbsp;
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -355,21 +350,22 @@
       
 
       
-        <h3 id="ListView中使用CheckBox"><a href="#ListView中使用CheckBox" class="headerlink" title="ListView中使用CheckBox"></a>ListView中使用CheckBox</h3><p>ListView出于内存优化的考虑，android为我们提供了convertView。可是复用item,会使CheckBox的选中状态错乱。下面为大家讲解一下，我是怎样处理的。</p>
-<p>这次我接到的需求是如图所示：<br><img src="/05/解决ListView中CheckBox复用而选中状态消失的问题/../../../images/hexo_13.png" alt=""><br>并且，下次进入要把选中的状态携带进来。<br>我最先想到的处理办法是ListView与CheckBox结合，但是这样做的话便会出现，如下两个问题：</p>
-<blockquote>
-<p>1.当我ListView上下滑动的时候，选中状态会错乱；<br>2.当我携带一组选中状态进入到ListView的时候，状态没有绘制成功。</p>
+        <h2 id="什么是单例"><a href="#什么是单例" class="headerlink" title="什么是单例"></a>什么是单例</h2><p>一个类在整个系统中只有一个实例，而且这个实例是在类的内部通过一个private的构造方法构造的，外部不能调用其构造方法，只能获取它的实例。</p>
+<h2 id="为什么使用单例而不是静态方法"><a href="#为什么使用单例而不是静态方法" class="headerlink" title="为什么使用单例而不是静态方法"></a>为什么使用单例而不是静态方法</h2><p>静态方法是基于对象，单例是面向对象的，面相对象的代码提供一个更好的编程思想。</p>
+<p>如果一个方法和他所在类的实例对象无关，那么它就应该是静态的，反之他就应该是非静态的。如果我们确实应该使用非静态的方法，但是在创建类时又确实只需要维护一份实例时，就需要用单例模式了。</p>
+<h2 id="单例的特点"><a href="#单例的特点" class="headerlink" title="单例的特点"></a>单例的特点</h2><blockquote>
+<p>1.单例类只能有一个实例。<br>2.单例类必须自己创建自己的唯一实例。<br>3.单例类必须给所有其他对象提供这一实例。</p>
 </blockquote>
-<p>其实这两个问题，可以归结为一个，就是ListView复用导致的.<br>有一些博客可能会教大家在adapter中写一个Map,保存每个条目的选中与未选中的状态，但是我亲测过程中出现一些问题，由于时间久远我记不清是上述两点中的哪个未被解决了。现提供一个比较简单的办法来处理ListView与CheckBox之间的冲突。</p>
-<p>当屏幕中只能展示ListView的10个item,当第11个item滑出是，它复用的是第1个item，但是由于setChecked()方法会触发监听器，而此时，第11个的item触发的是第1个item的中CheckBox的监听器，这也就导致了，第1个item中的CheckBox执行了onCheckedChanged()，所以也就出现了错乱的问题。但是如果先设置监听又会让CheckBox多出许多选中状态，同样会出现错乱。<br>现在我们已经知道是监听器的原因了，所以我们可以在setChecked()之前先清空监听，防止干扰setChecked()对CheckBox的状态进行设置。我们只需在setChecked()之前加上一句</p>
-<blockquote>
-<p>holder.cb.setOnCheckedChangeListener(null)</p>
+<h2 id="单例的饿汉式"><a href="#单例的饿汉式" class="headerlink" title="单例的饿汉式"></a>单例的饿汉式</h2><p>饿汉式在类创建的同时就已经创建好一个静态的对象供系统使用，以后不再改变，它是线程安全的。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">//饿汉式单例类.在类初始化时，已经自行实例化   </div><div class="line">public class Singleton&#123;  </div><div class="line">    private <span class="function"><span class="title">Singleton</span></span>() &#123;&#125;  </div><div class="line">    private static final Singleton single = new Singleton();  </div><div class="line">    //静态工厂方法   </div><div class="line">    public static Singleton <span class="function"><span class="title">getInstance</span></span>() &#123;  </div><div class="line">        <span class="built_in">return</span> single;  </div><div class="line">    &#125;  </div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h2 id="单例的懒汉式"><a href="#单例的懒汉式" class="headerlink" title="单例的懒汉式"></a>单例的懒汉式</h2><p>懒汉式单例只有在使用时才会被实例化<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">//懒汉式单例类.在第一次调用的时候实例化自己   </div><div class="line">public class Singleton &#123;  </div><div class="line">    private <span class="function"><span class="title">Singleton</span></span>() &#123;&#125;  </div><div class="line">    private static Singleton single=null;  </div><div class="line">    //静态工厂方法   </div><div class="line">    public static Singleton <span class="function"><span class="title">getInstance</span></span>() &#123;  </div><div class="line">         <span class="keyword">if</span> (single == null) &#123;    </div><div class="line">             single = new Singleton();  </div><div class="line">         &#125;    </div><div class="line">        <span class="built_in">return</span> single;  </div><div class="line">    &#125;  </div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>但是上述懒汉式单例是线程不安全的，并发环境下很可能出现多个Singleton实例，要实现线程安全，有以下三种方式，都是对getInstance这个方法改造并保证了懒汉式单例的线程安全。<br>1.在getInstance方法上加同步<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">public static synchronized Singleton <span class="function"><span class="title">getInstance</span></span>() &#123;  </div><div class="line">         <span class="keyword">if</span> (single == null) &#123;    </div><div class="line">             single = new Singleton();  </div><div class="line">         &#125;    </div><div class="line">        <span class="built_in">return</span> single;  </div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>如上，如果是在getInstance方法上加了一个synchronized，那么我每次去执行getInstace方法的时候都会受到同步锁的影响，这样运行的效率会降低，其实只需要在第一次创建Singleton实例的时候加上同步锁就可以了，那么便有如下的修改<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">public static Singleton <span class="function"><span class="title">getInstance</span></span>() &#123;  </div><div class="line">    synchronized (Singleton.class) &#123;  </div><div class="line">        <span class="keyword">if</span> (single == null) &#123;  </div><div class="line">            single = new Singleton();  </div><div class="line">        &#125;  </div><div class="line">        <span class="built_in">return</span> single;  </div><div class="line">    &#125;  </div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>这样效果是和直接在方法上加synchronized完全一致的。所以要在synchronized的外面再加一层判断<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">public static Singleton <span class="function"><span class="title">getInstance</span></span>() &#123;  </div><div class="line">    <span class="keyword">if</span> (single == null) &#123;  </div><div class="line">        synchronized (Singleton.class) &#123;  </div><div class="line">            <span class="keyword">if</span> (single == null) &#123;  </div><div class="line">                single = new Singleton();  </div><div class="line">            &#125;  </div><div class="line">        &#125;  </div><div class="line">    &#125;  </div><div class="line">    <span class="built_in">return</span> single;  </div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>只有在single还没被初始化的时候才会进入到第3行，然后加上同步锁。等single一但初始化完成了，就再也走不到第3行了，这样执行getInstance方法也不会再受到同步锁的影响，效率上会有一定的提升。这种方法叫做双重锁定(Double-Check Locking)。<br>Double Check Lock 实现单例，优点是既能够在需要时才初始化单例，又能够保证线程安全，且单例对象初始化后调用 getInstance() 不进行同步锁；缺点是第一次加载反应稍慢。</p>
+<h2 id="静态内部类方式"><a href="#静态内部类方式" class="headerlink" title="静态内部类方式"></a>静态内部类方式</h2><p>第一次加载不会初始化 Singleton，只有在第一次调用 Singleton 的 getInstance() 才会初始化，第一次调用会导致虚拟机加载 SingletonHolder 类，这种方式不仅能够确保线程安全，也能够保证单例对象的唯一性，同时也延迟了单例的实例化。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">public class Singleton &#123;</div><div class="line">    /**</div><div class="line">     * 单例模式(静态内部类的方式)</div><div class="line">     */</div><div class="line">    private <span class="function"><span class="title">Singleton</span></span>() &#123;</div><div class="line">    &#125;</div><div class="line">    public static Singleton <span class="function"><span class="title">getInstance</span></span>() &#123;</div><div class="line">        <span class="built_in">return</span> SingletonHolder.instance;</div><div class="line">    &#125;</div><div class="line">    private static class SingletonHolder &#123;</div><div class="line">        private static final Singleton instance = new Singleton();</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h2 id="单例模式优缺点"><a href="#单例模式优缺点" class="headerlink" title="单例模式优缺点"></a>单例模式优缺点</h2><blockquote>
+<p>优点：在内存中只有一个实例，减少了内存开支和性能开销；可以避免对同一资源文件的同时写操作；可以在系统设置全局的访问点，优化和共享资源访问。<br>缺点：一般没有接口，扩展困难；单例模式如果持有 Context，很容易引发内存泄漏，此时需要注意传递给单例对象的 Context 最好是 Application Context。</p>
 </blockquote>
-<p>这样就可以了。</p>
-<p>下面贴上我自己的代码（需求，选中状态是由外部传入，然后在ListView中做展示，并可修改各个item的选中状态）<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line">//adapter中的getView()的部分代码</div><div class="line"></div><div class="line">//从外部传入选中的Id</div><div class="line"><span class="keyword">if</span> (mCheckList!=null)&#123;</div><div class="line">	holder.cb.setOnCheckedChangeListener(null);</div><div class="line">       <span class="keyword">if</span> (mCheckList.contains(child.getId()))&#123;</div><div class="line">             holder.cb.setChecked(<span class="literal">true</span>);</div><div class="line">       &#125;<span class="keyword">else</span>&#123;</div><div class="line">             holder.cb.setChecked(<span class="literal">false</span>);</div><div class="line">       &#125;</div><div class="line">&#125;<span class="keyword">else</span>&#123;</div><div class="line">        mCheckList = new ArrayList&lt;&gt;();</div><div class="line">&#125;</div><div class="line"></div><div class="line">//给CheckBox设置监听</div><div class="line">holder.cb.setOnCheckedChangeListener(new CompoundButton.<span class="function"><span class="title">OnCheckedChangeListener</span></span>() &#123;</div><div class="line">	@Override</div><div class="line">        public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) &#123;</div><div class="line">        	<span class="keyword">if</span> (isChecked)&#123;</div><div class="line">			//如果选中，加入选中状态的list</div><div class="line">               		mCheckList.add(String.valueOf(child.getId()));</div><div class="line">               &#125;<span class="keyword">else</span>&#123;</div><div class="line">			//如果取消选中，把选中的id从list中移除</div><div class="line">               		mCheckList.remove(child.getId());</div><div class="line">               &#125;</div><div class="line">		//此为给activity的回调，把选中的所有CheckBox组成list还给activity</div><div class="line">               <span class="keyword">if</span> (onCheckListener!=null)&#123;</div><div class="line">               		onCheckListener.onCheckedChange(mCheckList);</div><div class="line">               &#125;</div><div class="line">	&#125;</div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
-<h3 id="Adapter怎样给Activity提供接口"><a href="#Adapter怎样给Activity提供接口" class="headerlink" title="Adapter怎样给Activity提供接口"></a>Adapter怎样给Activity提供接口</h3><p>由于上面提到adapter和activity互传数据的问题，以下为怎样给activity提供接口，供activity回调adapter中数据，不想把activity和adapter写在一个activity中的童鞋可以借鉴一下：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">//写在adapter中暴露给activity的接口</div><div class="line">public interface OnCheckListener&#123;</div><div class="line">	public void onCheckedChange(List&lt;String&gt; list);</div><div class="line">&#125;</div><div class="line"></div><div class="line">OnCheckListener onCheckListener;</div><div class="line">public void <span class="built_in">set</span>OnCheckListener(OnCheckListener onCheckListener)&#123;</div><div class="line">	this.onCheckListener = onCheckListener;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">//activity中使用的方法</div><div class="line">OnCheckListener onCheckListener =  new <span class="function"><span class="title">OnCheckListener</span></span>() &#123;</div><div class="line">	@Override</div><div class="line">	public void onCheckedChange(List adapterCheckedList) &#123;</div><div class="line">		mCheckIdList = adapterCheckedList;</div><div class="line">	&#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
-<p>如需转载，请注明出处：<a href="http://yaulam.com/" target="_blank" rel="external">YauLam’s Blog</a>，thank u~</p>
 
       
     </div>
@@ -391,9 +387,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/ListView/" rel="tag">#ListView</a>
+            <a href="/tags/android/" rel="tag">#android</a>
           
-            <a href="/tags/CheckBox/" rel="tag">#CheckBox</a>
+            <a href="/tags/java/" rel="tag">#java</a>
           
         </div>
       
@@ -402,17 +398,13 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/06/24/android之自定义Toast/" rel="next" title="android之自定义Toast">
-                <i class="fa fa-chevron-left"></i> android之自定义Toast
+              <a href="/2017/03/16/解决使用hexo时，由于更换电脑导致node-js出现的错误/" rel="next" title="解决使用hexo时，由于更换电脑导致node.js出现的错误">
+                <i class="fa fa-chevron-left"></i> 解决使用hexo时，由于更换电脑导致node.js出现的错误
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/08/08/android中ExpandableListView的详解/" rel="prev" title="android中ExpandableListView的详解">
-                android中ExpandableListView的详解 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -427,10 +419,10 @@
 
     <div class="post-spread">
       
-        <div class="ds-share flat" data-thread-key="2016/08/05/解决ListView中CheckBox复用而选中状态消失的问题/"
-     data-title="解决ListView中CheckBox复用而选中状态消失的问题"
+        <div class="ds-share flat" data-thread-key="2017/08/15/单例模式详述/"
+     data-title="单例模式详述"
      data-content=""
-     data-url="www.yaulam.com/2016/08/05/解决ListView中CheckBox复用而选中状态消失的问题/">
+     data-url="www.yaulam.com/2017/08/15/单例模式详述/">
   <div class="ds-share-inline">
     <ul  class="ds-share-icons-16">
 
@@ -457,8 +449,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/08/05/解决ListView中CheckBox复用而选中状态消失的问题/"
-           data-title="解决ListView中CheckBox复用而选中状态消失的问题" data-url="www.yaulam.com/2016/08/05/解决ListView中CheckBox复用而选中状态消失的问题/">
+      <div class="ds-thread" data-thread-key="2017/08/15/单例模式详述/"
+           data-title="单例模式详述" data-url="www.yaulam.com/2017/08/15/单例模式详述/">
       </div>
     
   </div>
@@ -549,7 +541,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#ListView中使用CheckBox"><span class="nav-number">1.</span> <span class="nav-text">ListView中使用CheckBox</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Adapter怎样给Activity提供接口"><span class="nav-number">2.</span> <span class="nav-text">Adapter怎样给Activity提供接口</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是单例"><span class="nav-number">1.</span> <span class="nav-text">什么是单例</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#为什么使用单例而不是静态方法"><span class="nav-number">2.</span> <span class="nav-text">为什么使用单例而不是静态方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#单例的特点"><span class="nav-number">3.</span> <span class="nav-text">单例的特点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#单例的饿汉式"><span class="nav-number">4.</span> <span class="nav-text">单例的饿汉式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#单例的懒汉式"><span class="nav-number">5.</span> <span class="nav-text">单例的懒汉式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#静态内部类方式"><span class="nav-number">6.</span> <span class="nav-text">静态内部类方式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#单例模式优缺点"><span class="nav-number">7.</span> <span class="nav-text">单例模式优缺点</span></a></li></ol></div>
             
           </div>
         </section>
